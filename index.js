@@ -14,7 +14,10 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:3000', 'https://your-production-domain.com'],
+    origin: [
+      'http://localhost:3000',
+      'https://ubiquitous-truffle-299c89.netlify.app/',
+    ],
     methods: ['GET', 'POST'],
     credentials: true,
   },

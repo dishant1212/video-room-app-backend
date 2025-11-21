@@ -5,7 +5,9 @@ const PORT = process.env.PORT || 8000;
 const PORT_IO = process.env.PORT_IO || 8001;
 
 const io = new Server({
-  cors: true,
+  cors: {
+    origin: '*',
+  },
 });
 const app = express();
 

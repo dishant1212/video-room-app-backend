@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const { Server } = require('socket.io');
+const PORT = process.env.PORT || 8000;
+const PORT_IO = process.env.PORT_IO || 8001;
 
 const io = new Server({
   cors: true,
@@ -39,8 +41,8 @@ io.on('connection', (socket) => {
   });
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log('Http server listening port 8000');
 });
 
-io.listen(8001);
+io.listen(PORT_IO);

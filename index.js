@@ -1,6 +1,7 @@
 // server.js
 const express = require('express');
 const bodyparser = require('body-parser');
+const cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
 
@@ -8,18 +9,14 @@ const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(bodyparser.json());
+app.use(cors());
 
 // create http server and attach express
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      'http://localhost:3000',
-      'https://ubiquitous-truffle-299c89.netlify.app/',
-    ],
-    methods: ['GET', 'POST'],
-    credentials: true,
+    origin: '*',
   },
 });
 
